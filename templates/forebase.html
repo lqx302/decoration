@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>{% block title %}{% endblock %}</title>
+{% load static %}
+<link href="{% get_static_prefix %}css/bootstrap.css" rel="stylesheet" type="text/css" media="all">
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="{% get_static_prefix %}js/jquery-1.11.0.min.js"></script>
+<!-- Custom Theme files -->
+<link href="{% get_static_prefix %}css/style.css" rel="stylesheet" type="text/css" media="all"/>
+<link rel="stylesheet" href="{% get_static_prefix %}css/flexslider.css" type="text/css" media="screen" />
+
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+</script>
+<!--Google Fonts-->
+<link href='http://fonts.useso.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+<link href='http://fonts.useso.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<!-- start-smoth-scrolling -->
+<script src="{% get_static_prefix %}js/jquery.min.js"></script>
+<script type="text/javascript" src="{% get_static_prefix %}js/move-top.js"></script>
+<script type="text/javascript" src="{% get_static_prefix %}js/easing.js"></script>
+	<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+	</script>
+</head>
+<body>
+<!-- //end-smoth-scrolling -->
+<!--header start here-->
+<div class="header">
+	<div class="container">
+		<div class="header-main">
+			<div class="logo">
+				<a href="{% url 'index' %}"> <img src="{% get_static_prefix %}images/logo.png" alt="" title=""> </a>
+			</div>
+			<div class="head-right">
+			  <div class="top-nav">
+					<span class="menu"> <img src="{% get_static_prefix %}images/icon.png" alt=""/></span>
+				<ul class="res">
+					<li><a href="{% url 'index' %}">首页</a></li>
+					<li><a href="{% url 'fore_case' %}">装修案例</a></li>
+					<li><a href="{% url 'fore_case' %}">装修方案</a></li>
+					<li><a href="{% url 'fore_about' %}">关于我们</a></li>
+				<div class="clearfix"> </div>
+				</ul>
+				<!-- script-for-menu -->
+							 <script>
+							   $( "span.menu" ).click(function() {
+								 $( "ul.res" ).slideToggle( 300, function() {
+								 // Animation complete.
+								  });
+								 });
+							</script>
+			<!-- /script-for-menu -->
+			 </div>
+				
+			<div class="search-box">
+				<div id="sb-search" class="sb-search">
+					<form>
+						<input class="sb-search-input" placeholder="Search" type="search" name="search" id="search">
+						<input class="sb-search-submit" type="submit" value="">
+						<span class="sb-icon-search"> </span>
+					</form>
+			   </div>
+			</div>
+			<div class="clearfix"> </div>
+			   <!-- search-scripts -->
+					<script src="{% get_static_prefix %}js/classie.js"></script>
+					<script src="{% get_static_prefix %}js/uisearch.js"></script>
+						<script>
+							new UISearch( document.getElementById( 'sb-search' ) );
+						</script>
+			  <!-- //search-scripts -->
+		</div>
+		
+		<div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<!--header end here-->
+<!--banner strip start here-->
+<script src="{% get_static_prefix %}js/responsiveslides.min.js"></script>
+<script>
+    $(function () {
+      $("#slider").responsiveSlides({
+      	auto: true,
+      	speed: 500,
+        namespace: "callbacks",
+        pager: false,
+        nav:true,
+      });
+    });
+  </script>
+<!--project star here-->
+<link rel="stylesheet" type="text/css" href="{% get_static_prefix %}css/magnific-popup.css">
+			<script type="text/javascript" src="{% get_static_prefix %}js/nivo-lightbox.min.js"></script>
+				<script type="text/javascript">
+				$(document).ready(function(){
+				    $('#nivo-lightbox-demo a').nivoLightbox({ effect: 'fade' });
+				});
+				</script>
+<!--project end here-->
+				  <script defer src="{% get_static_prefix %}js/jquery.flexslider.js"></script>
+				  <script type="text/javascript">
+					$(window).load(function(){
+					  $('.flexslider').flexslider({
+						animation: "slide",
+						start: function(slider){
+						  $('body').removeClass('loading');
+						}
+					  });
+					});
+				  </script>
+			<!-- FlexSlider -->
+<!--purchase end here-->
+<!--footer start here-->
+{% block content %} {% endblock %}
+{% block footer %}
+<div class="footer">
+	<div class="copyright">
+	    <div class="container">
+		    <div class="copy-main">
+			    <div class="copy-center">
+				    <p class="text-center">Copyright &copy; 2016.兴旺装饰 All rights reserved.</p>
+			    </div>
+		   </div>
+	    </div>
+    </div>
+</div>
+{% endblock%}
+<!--footer end here-->
+</body>
+</html>
